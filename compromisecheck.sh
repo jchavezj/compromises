@@ -46,7 +46,7 @@ function process {
 
 
 # This is the pattern to look for
-PATTERN='base64_decode|r0nin|m0rtix|upl0ad|r57shell|cFaTaLisTiCz_Fx|Tukulesto|99shell|shellbot|phpshell|void\.ru|phpremoteview|directmail|bash_history|\.ru/|brute*force|multiviews|cwings|vandal|bitchx|eggdrop|guardservices|psybnc|dalnet|undernet|vulnscan|spymeta|raslan58|Webshell'
+PATTERN='base64_decode|r0nin|m0rtix|upl0ad|r57shell|99shell|shellbot|phpshell|void\.ru|phpremoteview|directmail|bash_history|\.ru/|brute*force|multiviews|cwings|vandal|bitchx|eggdrop|guardservices|psybnc|dalnet|undernet|vulnscan|spymeta|raslan58|Webshell'
 
 # searches various sripts for possible exploints
 printf "%s\n" ${mag}"**************** Beginning of  Scan  ****************"${end} ""
@@ -57,6 +57,6 @@ printf "%s\n" ${yel}"Have your developer verify these scripts before deleting or
 # Now calling the functions to work their foo.
   xpscan
   wp
- process
+  process
 
 printf "%s\n" ${mag}"**************** Scan complete ****************"${end}
