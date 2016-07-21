@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 # This script locates possible code exploits
 # in php. Not all files detected
 # are compromised
@@ -36,7 +36,13 @@ function xpscan {
 
 function wp {
 	write_header "Now checking for wordpress versions"
-	find /var/www/ -name 'version.php' -path '*wp-includes/*' -print -exec grep '$wp_version =' {} \; -exec echo '' \;
+	
+        LATESTVERSION=$(curl -s http://api.wordpress.org/core/version-check/1.5/ | head -n 4 | tail -n 1)
+
+        find /var/www -iname version.php > /root/version.txt
+        grep "wp-includes" /root/version.txt > /root/version.txt1
+        for i in `cat /root/version.txt1`; do echo "Installed path=`echo $i|dirname $i|awk -Fwp {'print $1'}`" ; echo ${cyn}"The latest Wordpress version is $LATESTVERSION "${end}  ;echo \
+        "Currently Installed version = `grep "wp_version =" $i |cut -d '=' -f2`"; echo " "; done
 }
 
 function process {
