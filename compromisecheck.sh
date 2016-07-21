@@ -41,8 +41,8 @@ function wp {
 
         find /var/www -iname version.php > /root/version.txt
         grep "wp-includes" /root/version.txt > /root/version.txt1
-        for i in `cat /root/version.txt1`; do echo "Installed path=`echo $i|dirname $i|awk -Fwp {'print $1'}`" ; echo ${cyn}"The latest Wordpress version is $LATESTVERSION "${end}  ;echo \
-        "Currently Installed version = `grep "wp_version =" $i |cut -d '=' -f2`"; echo " "; done
+        for i in `cat /root/version.txt1`; do echo "Installed path=`echo $i|dirname $i|awk -Fwp {'print $1'}`" ; 
+	echo ${cyn}"The latest Wordpress version is $LATESTVERSION "${end} ;echo "Currently Installed version = `grep "wp_version =" $i |cut -d '=' -f2`"; echo " "; done
 }
 
 function process {
