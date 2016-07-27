@@ -1,7 +1,8 @@
 # compromises
 Script to search for possible compromises on Linux Servers.
 
-__Functions__
+Function
+-------
 
 Function name | Description 
 --------------| -----------
