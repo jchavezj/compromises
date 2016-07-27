@@ -62,7 +62,7 @@ function process {
 # This will run unix-privesc-check which will search for security issues on the server
 
 function pentest {
- 	if [ ! -d "/home/rack/unix-privesc-check" ]
+ 	if [ ! -d "/home/rack/unix-privesc-check-1.4" ]
              then
                  cd /home/rack/
                  wget -q  http://pentestmonkey.net/tools/unix-privesc-check/unix-privesc-check-1.4.tar.gz
@@ -75,7 +75,8 @@ function pentest {
                 grep WARNING /home/rack/compromise-$(date +%F).txt
 	        echo ${cyn} "These are the errors "${end}
 	        grep -C2 "ERROR" /home/rack/compromise-$(date +%F).txt
-            else
+             else
+		cd /home/rack/unix-privesc-check-1.4
 	        write_header "Checking for privilege escalation "
 	        echo "Now writing to file /home/rack/compromise-$(date +%F).txt"
                 ./unix-privesc-check detailed > /home/rack/compromise-$(date +%F).txt
